@@ -11,10 +11,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val btn_roll: Button = findViewById(R.id.button)
-        btn_roll.setOnClickListener {
-            val resultTextView: TextView = findViewById(R.id.textView)
-            resultTextView.text = "6"
-        }
+        btn_roll.setOnClickListener { rollDice() }
+    }
+
+    private fun rollDice() {
+        val dice = Dice(6)
+        val diceRoll = dice.roll()
+        val resultTextView: TextView = findViewById(R.id.textView)
+        resultTextView.text = diceRoll.toString()
     }
 }
 
